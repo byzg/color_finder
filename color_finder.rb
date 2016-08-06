@@ -73,8 +73,8 @@ class ColorFinder
   end
 end
 
-# Rails.root.join('app', 'assets', 'stylesheets').to_s
-# Rails.root.join('app', 'assets', 'stylesheets', '_vars.sass').to_s
-color_finder = ColorFinder.new(*ARGV)
+styles_root = ARGV[0] || './app/assets/stylesheets'
+vars = ARGV[1] || './app/assets/stylesheets/_vars.sass'
+color_finder = ColorFinder.new(styles_root, vars)
 color_finder.find_and_replace
 color_finder.report
